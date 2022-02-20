@@ -26,6 +26,7 @@ button {
   background: #000;
   position: relative;
   margin-left: 50px;
+  cursor:pointer;
  }
  
  button p {
