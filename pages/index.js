@@ -1,8 +1,19 @@
 import Head from 'next/head'
 import Image from 'next/image'
 import styles from '../styles/Home.module.css'
+var requestOptions = {
+  method: 'POST',
+  redirect: 'follow'
+};
+
 
 export default function Home() {
+  const showAlert = () => {
+    fetch("https://d7fe1ff7-92ff-4b99-abb4-15aac517a57c.webhook.eus.azure-automation.net/webhooks?token=qeK5yDjuk8gfwJ6LY0301PvkAKzMTXiTY%2fB085rdcCw%3d", requestOptions)
+  .then(response => response.text())
+  .then(result => console.log(result))
+  .catch(error => console.log('error', error));
+  }
   return (
     <div className={styles.container}>
       <Head>
@@ -20,7 +31,10 @@ export default function Home() {
           Get started by editing{' '}
           <code className={styles.code}>pages/index.js</code>
         </p>
-
+        <a href="https://nextjs.org/docs" className={styles.card}>
+        <button onClick={showAlert}>Start!</button>
+            
+          </a>
         <div className={styles.grid}>
           <a href="https://nextjs.org/docs" className={styles.card}>
             <h2>Documentation &rarr;</h2>
